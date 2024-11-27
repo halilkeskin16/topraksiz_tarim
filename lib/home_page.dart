@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:topraksiz_tarim/ControlCard.dart';
+import 'package:topraksiz_tarim/details_pages.dart'; // Detaylar sayfasını oluşturduktan sonra bu importu yapın.
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,6 +15,7 @@ class _HomePageState extends State<HomePage> {
   double temperature = 25.0; // Sıcaklık değeri
   double humidity = 50.0; // Nem değeri
   String airQualityText = "Orta"; // Hava kalitesi değeri
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -26,6 +28,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          // Bilgilendirme Paneli
           Container(
             width: MediaQuery.of(context).size.width / 1.1,
             height: MediaQuery.of(context).size.height / 5,
@@ -58,6 +61,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // Işık Kontrol Kartı
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 2.5,
                   height: MediaQuery.of(context).size.height / 6,
@@ -74,6 +78,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 const SizedBox(width: 10),
+
+                // Fan Kontrol Kartı
                 SizedBox(
                   width: MediaQuery.of(context).size.width / 2.5,
                   height: MediaQuery.of(context).size.height / 6,
@@ -96,7 +102,6 @@ class _HomePageState extends State<HomePage> {
             width: MediaQuery.of(context).size.width / 1.2,
             height: MediaQuery.of(context).size.height / 6,
             child: Card(
-              // Dinamik kart rengi
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
@@ -133,23 +138,54 @@ class _HomePageState extends State<HomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 2.5,
-                height: MediaQuery.of(context).size.height / 6,
-                child: ControlCard(
-                  icon: Icons.cloud,
-                  title: 'Hava Kalitesi',
-                  airQualityText: airQualityText,
+              // Hava Kalitesi Kartı
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailsPage(
+                        icon: Icons.cloud,
+                        title: "Hava Kalitesi",
+                        value: airQualityText,
+                      ),
+                    ),
+                  );
+                },
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width / 2.5,
+                  height: MediaQuery.of(context).size.height / 6,
+                  child: ControlCard(
+                    icon: Icons.cloud,
+                    title: 'Hava Kalitesi',
+                    airQualityText: airQualityText,
+                  ),
                 ),
               ),
               const SizedBox(width: 10),
-              SizedBox(
-                width: MediaQuery.of(context).size.width / 2.5,
-                height: MediaQuery.of(context).size.height / 6,
-                child: ControlCard(
-                  icon: Icons.water_drop,
-                  title: 'Nem',
-                  humidityText: '% ${humidity.toStringAsFixed(1)}',
+
+              // Nem Kartı
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailsPage(
+                        icon: Icons.water_drop,
+                        title: "Nem",
+                        value: "% ${humidity.toStringAsFixed(1)}",
+                      ),
+                    ),
+                  );
+                },
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width / 2.5,
+                  height: MediaQuery.of(context).size.height / 6,
+                  child: ControlCard(
+                    icon: Icons.water_drop,
+                    title: 'Nem',
+                    humidityText: '% ${humidity.toStringAsFixed(1)}',
+                  ),
                 ),
               ),
             ],

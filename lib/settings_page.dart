@@ -12,11 +12,12 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final themeProvider = Provider.of<ThemeProvider>(context);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Ayarlar"),
+        backgroundColor: theme.primaryColor,
       ),
       body: Center(
         child: Row(

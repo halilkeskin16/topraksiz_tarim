@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:topraksiz_tarim/details_pages.dart';
 import 'package:topraksiz_tarim/home_page.dart';
 import 'package:topraksiz_tarim/settings_page.dart';
 
