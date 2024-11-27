@@ -42,7 +42,8 @@ class ControlCard extends StatelessWidget {
           Icon(
             icon,
             size: screenWidth / 10,
-            color: hasSwitchLigth && switchValueLigth ? Colors.yellow : Colors.grey,
+
+            color: (hasSwitchLigth && switchValueLigth) ? Colors.yellow : (hasSwitchFan && switchValueFan) ? Colors.blue : Colors.grey,
           ),
           const SizedBox(height: 8),
           Text(
