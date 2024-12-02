@@ -27,10 +27,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
             icon: Icon(Icons.home),
             label: 'Ana Sayfa',
           ),
-          BottomNavigationBarItem(         
+          BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Ayarlar',
-            
           ),
         ],
         currentIndex: _selectedIndex,

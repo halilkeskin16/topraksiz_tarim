@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "608164752215",
+    "project_id": "tokraksiz",
+    "storage_bucket": "tokraksiz.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608164752215:android:021d4c81c2161a50aa2c12",
+        "android_client_info": {
+          "package_name": "toraksiz_tarim.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPGfP2bXdktqwWYgJtxaHdg3D9ZFxSV3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
